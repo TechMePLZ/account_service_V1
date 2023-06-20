@@ -1,0 +1,37 @@
+server:
+   port: 8086
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/slot_account
+    username: postgres
+    password: admin
+  flyway:
+    url: jdbc:postgresql://localhost:5432/slot_account
+    user: postgres
+    password: admin
+    locations: classpath:db/migration
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+  application:
+    name: account-service
+
+
+
+#
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8769/eureka/
+#    register-with-eureka: false
+#    fetch-registry: false
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    preferIpAddress: false
